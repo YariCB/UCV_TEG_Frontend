@@ -1,6 +1,7 @@
 import React from 'react'
 import heroImg from '../../assets/hero.png'
 import uploadIcon from '../../assets/upload.svg'
+import CubeScene from '../canvas/CubeScene.jsx'
 import '../../pages/Landing/landing.css'
 
 export default function Hero() {
@@ -16,7 +17,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="la-hero-right">
-          <img src={heroImg} alt="decor" />
+          <CubeScene />
         </div>
       </div>
     </section>
