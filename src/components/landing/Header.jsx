@@ -12,7 +12,7 @@ export default function Header() {
         </div>
         <nav className="la-nav">
           <a className="la-link" href="#">Iniciar sesión</a>
-          <a className="la-cta primary-pill" href="#">Crear cuenta</a>
+          <a className="la-cta primary-pill" href="/signup">Crear cuenta</a>
         </nav>
       </div>
     </header>
