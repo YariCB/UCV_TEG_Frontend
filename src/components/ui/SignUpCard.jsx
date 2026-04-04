@@ -27,7 +27,7 @@ export default function SignUpCard() {
       <form className="signup-form-list">
         <div className="input-group">
           <label>Nombre completo <span className="required">*</span></label>
-          <input type="text" placeholder="Ej. Juan Pérez" required />
+          <input type="text" placeholder="Tu nombre" required />
         </div>
 
         <div className="input-group">
