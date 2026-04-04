@@ -74,9 +74,14 @@ body{
   align-items:center
 }
 
-.la-link{
-  color:var(--muted);
-  text-decoration:none
+.la-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.la-link:hover {
+  color: var(--accent);
+  font-weight: bold;
 }
 
 .la-cta{
@@ -141,6 +146,14 @@ body{
   box-shadow:var(--shadow)
 }
 
+.la-cta.primary-pill:hover,
+.btn.primary:hover,
+.btn.white:hover,
+.btn.ghost:hover{
+  box-shadow:0 10px 10px rgba(87, 57, 153, 0.627);
+  border-color: #2b2540ba;
+}
+
 .btn.white {
   background: var(--white);
   color: var(--accent);
@@ -199,7 +212,19 @@ body{
   background:var(--card);
   padding:28px;
   border-radius:14px;
-  min-height:160px
+  min-height:160px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza el movimiento */
+  cursor: default;
+}
+
+.hiw-card:hover {
+  transform: translateY(-5px) scale(1.03) rotate(1deg);
+  box-shadow: 0 15px 35px rgba(87, 57, 153, 0.418);
+}
+
+.hiw-card:nth-child(2):hover, .cta-card:hover {
+  transform: translateY(-5px) scale(1.03) rotate(-1deg);
+  box-shadow: 0 15px 35px rgba(87, 57, 153, 0.418);
 }
 
 .hiw-icon{
