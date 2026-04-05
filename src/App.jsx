@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from './pages/Landing'
 import SignUp from './pages/Auth/SignUp'
 import Login from './pages/Auth/Login'
+import ForgotPassword from './pages/Auth/ForgotPassword'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -18,6 +19,9 @@ function App() {
 
         {/* Ruta para la interfaz de Login */}
         <Route path="/login" element={<Login />} />
+
+        {/* Ruta para Restablecer Contraseña */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>
   )

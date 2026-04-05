@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import sampleIcon from '../../assets/sample.svg'
 import backIcon from '../../assets/back.png'
+import openEyeIcon from '../../assets/openEye.png'
+import closedEyeIcon from '../../assets/closedEye.png'
 import '../../pages/Auth/Auth.css'
 
 export default function LoginCard() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="la-signup-card">
       <Link to="/" className="back-home-link">
@@ -29,13 +33,32 @@ export default function LoginCard() {
           <input type="email" placeholder="correo@ejemplo.com" required />
         </div>
 
-        <div className="input-group">
-          <label>Contraseña <span className="required">*</span></label>
-          <input type="password" placeholder="Tu contraseña" required />
+        {/* Campo de Contraseña con Ojo */}
+        <div className="input-group password-group">
+            <label>Contraseña <span className="required">*</span></label>
+              <div className="password-input-wrapper">
+                <input 
+                      type={showPassword ? "text" : "password"} // Type dinámico
+                      placeholder="Tu contraseña" 
+                      required 
+                />
+                {/* Botón del ojo */}
+                <button 
+                      type="button"
+                      className="toggle-password-btn"
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+                >
+                  <img 
+                        src={showPassword ? openEyeIcon : closedEyeIcon} // Icono dinámico
+                        alt="" 
+                  />
+                </button>
+            </div>
         </div>
 
         <p className="login-redirect muted small">
-            <Link to="/forgotPassword" className="la-link">¿Olvidaste tu contraseña?</Link>
+            <Link to="/forgot-password" className="la-link">¿Olvidaste tu contraseña?</Link>
         </p>
         <br></br>
 
