@@ -1,9 +1,9 @@
 import React from 'react'
 import CubeScene from '../../components/canvas/CubeScene.jsx'
-import SignUpCard from '../../components/ui/SignUpCard.jsx'
-import './SignUp.css'
+import LoginCard from '../../components/ui/LoginCard.jsx'
+import './Auth.css'
 
-export default function SignUp() {
+export default function Login() {
   return (
     <div className="la-signup-page">
       <div className="signup-left">
@@ -11,16 +11,16 @@ export default function SignUp() {
           <CubeScene />
         </div>
         <div className="left-content">
-          <h1>Únete a NombreApp</h1>
+          <h1>Bienvenido de nuevo</h1>
           <p className="muted">
-            Comienza a estimar costos de tus proyectos 3D
+            Accede a tus proyectos y continúa estimando tus modelos 3D.
           </p>
         </div>
       </div>
 
       <div className="signup-right">
         <div className="form-container">
-          <SignUpCard />
+          <LoginCard />
         </div>
       </div>
     </div>

@@ -4,10 +4,9 @@ import sampleIcon from '../../assets/sample.svg'
 import backIcon from '../../assets/back.png'
 import '../../pages/Auth/Auth.css'
 
-export default function SignUpCard() {
+export default function LoginCard() {
   return (
     <div className="la-signup-card">
-      {/* Botón Volver ahora dentro del card */}
       <Link to="/" className="back-home-link">
         <img src={backIcon} alt="back" className="back-icon-accent" />
         <span>Volver al inicio</span>
@@ -18,18 +17,13 @@ export default function SignUpCard() {
           <div className="brand-icon"><img src={sampleIcon} alt="logo"/></div>
           <span>NombreApp</span>
         </div>
-        <h2 className="accent-title">Crear cuenta gratis</h2>
+        <h2 className="accent-title">Iniciar sesión</h2>
         <p className="login-redirect muted small">
-          ¿Ya tienes una cuenta? <Link to="/login" className="la-link">Inicia sesión</Link>
+          ¿No tienes cuenta? <Link to="/signup" className="la-link">Crear cuenta</Link>
         </p>
       </div>
       
       <form className="signup-form-list">
-        <div className="input-group">
-          <label>Nombre completo <span className="required">*</span></label>
-          <input type="text" placeholder="Tu nombre" required />
-        </div>
-
         <div className="input-group">
           <label>Correo electrónico <span className="required">*</span></label>
           <input type="email" placeholder="correo@ejemplo.com" required />
@@ -37,16 +31,16 @@ export default function SignUpCard() {
 
         <div className="input-group">
           <label>Contraseña <span className="required">*</span></label>
-          <input type="password" placeholder="Mínimo 8 caracteres" required />
+          <input type="password" placeholder="Tu contraseña" required />
         </div>
 
-        <div className="input-group">
-          <label>Confirmar contraseña <span className="required">*</span></label>
-          <input type="password" placeholder="Repite tu contraseña" required />
-        </div>
+        <p className="login-redirect muted small">
+            <Link to="/forgotPassword" className="la-link">¿Olvidaste tu contraseña?</Link>
+        </p>
+        <br></br>
 
         <button type="submit" className="btn primary block">
-          Registrarse ahora
+          Entrar
         </button>
       </form>
     </div>

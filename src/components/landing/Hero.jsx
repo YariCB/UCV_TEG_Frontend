@@ -13,7 +13,7 @@ export default function Hero() {
           <p className="muted">Sube tus archivos 3D y obtén estimaciones de costos y materiales para proyectos independientes. Perfecto para makers, artesanos y pequeños emprendedores.</p>
           <div className="la-hero-ctas">
             <a className="btn primary" href="/signup"><img src={uploadIcon} alt="" className="btn-icon"/>Comenzar ahora</a>
-            <a className="btn ghost" href="#">Ya tengo cuenta</a>
+            <a className="btn ghost" href="/login">Ya tengo cuenta</a>
           </div>
         </div>
         <div className="la-hero-right">

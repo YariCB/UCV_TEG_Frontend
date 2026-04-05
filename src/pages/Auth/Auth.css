@@ -93,7 +93,7 @@
 /* --- TARJETA Y FORMULARIO VERTICAL --- */
 
 .la-signup-card {
-    background-color: var(--white);
+    background-color: var(--bg);
     padding: 40px;
     border-radius: 24px;
     width: 100%;
