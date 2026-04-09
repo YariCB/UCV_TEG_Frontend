@@ -5,6 +5,7 @@ import SignUp from './pages/Auth/SignUp'
 import Login from './pages/Auth/Login'
 import ForgotPassword from './pages/Auth/ForgotPassword'
 import Home from './pages/Home/Home'
+import Projects from './pages/Projects/Projects'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -26,6 +27,9 @@ function App() {
 
         {/* Ruta para el Home */}
         <Route path="/home" element={<Home />} />
+
+        {/* Ruta para la página de Proyectos */}
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </Router>
   )
