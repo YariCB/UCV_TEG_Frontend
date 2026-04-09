@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sampleIcon from '../../assets/sample.svg'
 import backIcon from '../../assets/back.png'
 import openEyeIcon from '../../assets/openEye.png'
@@ -10,6 +10,19 @@ export default function SignUpCard() {
   // Estados para controlar la visibilidad de cada contraseña
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignUp= (e) => {
+    e.preventDefault();
+    
+    // Validaciones (campos vacíos, formato, etc.)
+    // Llamada a la API
+    
+    console.log("Validando datos...");
+
+    // Redirección al Home
+    navigate('/login');
+  };
 
   return (
     <div className="la-signup-card">
@@ -30,7 +43,7 @@ export default function SignUpCard() {
         </p>
       </div>
       
-      <form className="signup-form-list">
+      <form className="signup-form-list" onSubmit={handleSignUp}>
         <div className="input-group">
           <label>Nombre completo <span className="required">*</span></label>
           <input type="text" placeholder="Tu nombre" required />

@@ -200,6 +200,11 @@
   padding-right: 50px;
 }
 
+.password-input-wrapper input::-ms-reveal,
+.password-input-wrapper input::-ms-clear {
+  display: none;
+}
+
 .input-group.password-group {
   gap: 8px;
 }

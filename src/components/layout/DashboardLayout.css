@@ -1,0 +1,269 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f8f9fd;
+}
+
+/* ---------- Sidebar ---------- */
+
+.dashboard-sidebar {
+  width: 70px;
+  background-color: #4c3a91;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 20px 0; 
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Estado Expandido */
+.sidebar-expanded .dashboard-sidebar {
+  width: 240px;
+  align-items: flex-start;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.sidebar-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-expanded .sidebar-top {
+  align-items: flex-start;
+}
+
+.menu-toggle {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8e94a9;
+}
+
+.menu-toggle:hover {
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s;
+}
+
+.sidebar-expanded .nav-item {
+  justify-content: flex-start;
+}
+
+.nav-item:hover svg {
+  stroke: white;
+}
+
+.nav-item.active svg {
+  fill: rgb(252, 249, 255);
+  stroke: white;
+}
+
+.nav-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover, .nav-item.active,
+.nav-item:hover span, .nav-item.active span {
+  color: white;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+.action-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.sidebar-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-btn {
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar-expanded .logout-btn {
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+/* ---------- Navbar ---------- */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-navbar {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.search-bar {
+  background: #f1f3f9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  width: 400px;
+  gap: 10px;
+  color: #8e94a9;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.page-body {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Botones genéricos */
+.icon-btn, .icon-btn-muted {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8e94a9;
+}
+
+.icon-btn:hover {
+    color: #ffffff;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+}
+
+/* --- Responsive Design --- */
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .sidebar-expanded .dashboard-sidebar {
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .dashboard-sidebar {
+    position: relative; 
+    left: 0; 
+  }
+
+  .sidebar-expanded .dashboard-sidebar {
+    position: absolute;
+    height: 100%;
+    width: 240px;
+  }
+
+  .search-bar {
+    display: none;
+  }
+}
+
+.la-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4c3a91;
+  font-weight: 700;
+}

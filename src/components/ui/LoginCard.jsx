@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sampleIcon from '../../assets/sample.svg'
 import backIcon from '../../assets/back.png'
 import openEyeIcon from '../../assets/openEye.png'
@@ -8,6 +8,19 @@ import '../../pages/Auth/Auth.css'
 
 export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+    // Validaciones (campos vacíos, formato, etc.)
+    // Llamada a la API para verificar las credenciales
+    
+    console.log("Validando datos...");
+
+    // Redirección al Home
+    navigate('/home');
+  };
 
   return (
     <div className="la-signup-card">
@@ -27,7 +40,7 @@ export default function LoginCard() {
         </p>
       </div>
       
-      <form className="signup-form-list">
+      <form className="signup-form-list" onSubmit={handleLogin}>
         <div className="input-group">
           <label>Correo electrónico <span className="required">*</span></label>
           <input type="email" placeholder="correo@ejemplo.com" required />
@@ -63,7 +76,7 @@ export default function LoginCard() {
         <br></br>
 
         <button type="submit" className="btn primary block">
-          Entrar
+          Ingresar
         </button>
       </form>
     </div>

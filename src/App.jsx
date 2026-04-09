@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import SignUp from './pages/Auth/SignUp'
 import Login from './pages/Auth/Login'
 import ForgotPassword from './pages/Auth/ForgotPassword'
+import Home from './pages/Home/Home'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -22,6 +23,9 @@ function App() {
 
         {/* Ruta para Restablecer Contraseña */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        {/* Ruta para el Home */}
+        <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
   )
