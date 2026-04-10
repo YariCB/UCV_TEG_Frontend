@@ -214,3 +214,21 @@
 }
 
 .text-right { text-align: right; }
+
+/* --- Estados de Ordenamiento --- */
+.sort-icon.active {
+  color: var(--accent); /* Morado cuando está activo */
+  opacity: 1;
+}
+
+.no-results {
+  padding: 40px;
+  text-align: center;
+  color: #8e94a9;
+  font-style: italic;
+}
+
+/* --- Ajuste de Tabla --- */
+.th-content {
+  user-select: none; /* Evita que el texto se seleccione al hacer click rápido */
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import { 
   Plus, LayoutGrid, List, Eye, Edit3, Trash2, 
@@ -9,20 +9,66 @@ import './Projects.css';
 export default function Projects() {
   const [viewMode, setViewMode] = useState('table');
   
-  const projects = [
+  // Estado para el ordenamiento
+  const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
+
+  const initialProjects = [
     { id: 1, name: "Escritorio Estudiante", version: "v1.0", date: "12 Oct 2025", status: "Completado" },
     { id: 2, name: "Estrella Mario Bros", version: "v2.1", date: "05 Nov 2025", status: "Procesando" },
     { id: 3, name: "Silla de Madera", version: "v1.0", date: "10 Nov 2025", status: "Completado" },
     { id: 4, name: "Taza", version: "v3.0", date: "15 Nov 2025", status: "Completado" },
   ];
 
-  // Flechas de ordenamiento
-  const SortIcons = () => (
-    <div className="sort-icons-wrapper">
-      <ChevronUp size={12} className="sort-icon" />
-      <ChevronDown size={12} className="sort-icon" />
-    </div>
-  );
+  // Lógica de ordenamiento
+  const sortedProjects = useMemo(() => {
+    let sortableItems = [...initialProjects];
+    if (sortConfig.key !== null) {
+      sortableItems.sort((a, b) => {
+        let aValue = a[sortConfig.key];
+        let bValue = b[sortConfig.key];
+
+        // Tratamiento especial para fechas (convertir string a objeto Date)
+        if (sortConfig.key === 'date') {
+          aValue = new Date(aValue);
+          bValue = new Date(bValue);
+        }
+
+        if (aValue < bValue) {
+          return sortConfig.direction === 'asc' ? -1 : 1;
+        }
+        if (aValue > bValue) {
+          return sortConfig.direction === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+  }, [sortConfig]);
+
+  const requestSort = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  // Flechas de ordenamiento con feedback visual
+  const SortIcons = ({ columnKey }) => {
+    const isActive = sortConfig.key === columnKey;
+    return (
+      <div className="sort-icons-wrapper">
+        <ChevronUp 
+          size={12} 
+          style={{ opacity: isActive && sortConfig.direction === 'asc' ? 1 : 0.3 }} 
+        />
+        <ChevronDown 
+          size={12} 
+          style={{ opacity: isActive && sortConfig.direction === 'desc' ? 1 : 0.3 }} 
+        />
+      </div>
+    );
+  };
 
   return (
     <DashboardLayout>
@@ -30,7 +76,7 @@ export default function Projects() {
         <div className="projects-header">
           <div className="header-left">
             <h2 className="accent-title">Proyectos de Fabricación</h2>
-            <p className="muted small">Tienes {projects.length} proyectos guardados</p>
+            <p className="muted small">Tienes {initialProjects.length} proyectos guardados</p>
           </div>
           <button className="btn primary icon-left">
             <Plus size={18} /> Nuevo Proyecto
@@ -60,20 +106,20 @@ export default function Projects() {
               <table className="projects-table">
                 <thead>
                   <tr>
-                    <th className="col-name clickable">
-                      <div className="th-content">Nombre <SortIcons /></div>
+                    <th className="col-name clickable" onClick={() => requestSort('name')}>
+                      <div className="th-content">Nombre <SortIcons columnKey="name" /></div>
                     </th>
-                    <th className="col-version clickable">
-                      <div className="th-content">Versión <SortIcons /></div>
+                    <th className="col-version clickable" onClick={() => requestSort('version')}>
+                      <div className="th-content">Versión <SortIcons columnKey="version" /></div>
                     </th>
-                    <th className="col-date clickable">
-                      <div className="th-content">Modificado <SortIcons /></div>
+                    <th className="col-date clickable" onClick={() => requestSort('date')}>
+                      <div className="th-content">Modificado <SortIcons columnKey="date" /></div>
                     </th>
                     <th className="col-actions text-right">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {projects.map(proj => (
+                  {sortedProjects.map(proj => (
                     <tr key={proj.id}>
                       <td className="table-name-cell">
                         <div className="file-icon-bg"><Box size={16} /></div>
@@ -93,7 +139,7 @@ export default function Projects() {
             </div>
           ) : (
             <div className="projects-grid-view">
-              {projects.map(proj => (
+              {sortedProjects.map(proj => (
                 <div key={proj.id} className="project-preview-card">
                   <div className="preview-thumbnail">
                     <div className="mesh-placeholder">3D Preview</div>
