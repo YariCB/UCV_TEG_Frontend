@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import { 
   Plus, LayoutGrid, List, Eye, Edit3, Trash2, 
   MoreVertical, Box, ChevronUp, ChevronDown 
 } from 'lucide-react';
 import './Projects.css';
+import SearchContext from '../../context/SearchContext';
 
 export default function Projects() {
   const [viewMode, setViewMode] = useState('table');
@@ -44,6 +45,15 @@ export default function Projects() {
     }
     return sortableItems;
   }, [sortConfig]);
+
+  // Filtrar por término de búsqueda desde el navbar
+  const { searchTerm } = useContext(SearchContext);
+
+  const filteredProjects = useMemo(() => {
+    if (!searchTerm || searchTerm.trim() === '') return sortedProjects;
+    const q = searchTerm.toLowerCase();
+    return sortedProjects.filter(p => p.name.toLowerCase().includes(q));
+  }, [sortedProjects, searchTerm]);
 
   const requestSort = (key) => {
     let direction = 'asc';
@@ -119,7 +129,7 @@ export default function Projects() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedProjects.map(proj => (
+                  {filteredProjects.map(proj => (
                     <tr key={proj.id}>
                       <td className="table-name-cell">
                         <div className="file-icon-bg"><Box size={16} /></div>
@@ -139,7 +149,7 @@ export default function Projects() {
             </div>
           ) : (
             <div className="projects-grid-view">
-              {sortedProjects.map(proj => (
+              {filteredProjects.map(proj => (
                 <div key={proj.id} className="project-preview-card">
                   <div className="preview-thumbnail">
                     <div className="mesh-placeholder">3D Preview</div>

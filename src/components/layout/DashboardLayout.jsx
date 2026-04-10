@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import sampleIcon from '../../assets/sample.svg'
 import pfp from '../../assets/pfp.png'
+import { SearchContext } from '../../context/SearchContext';
+import { useContext } from 'react';
 import './DashboardLayout.css';
 
 // Íconos de Lucide React
@@ -12,6 +14,7 @@ import {
 
 export default function DashboardLayout({ children }) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { searchTerm, setSearchTerm } = useContext(SearchContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -79,7 +82,12 @@ export default function DashboardLayout({ children }) {
             <div className="navbar-center">
                 <div className="search-bar">
                 <Search size={18} />
-                <input type="text" placeholder="Buscar proyecto por nombre..." />
+                <input
+                  type="text"
+                  placeholder="Buscar proyecto por nombre..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
                 </div>
             </div>
 
