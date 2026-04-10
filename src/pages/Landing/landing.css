@@ -278,7 +278,8 @@ body{
 
 .features-list{
   list-style:none;
-  padding:0;color:var(--muted);
+  padding:0;
+  /* color:var(--muted); */
   display:flex;
   flex-direction:column;
   gap:12px;

@@ -66,8 +66,8 @@ export default function ForgotPassword() {
                                 <p className="muted small">Guardando tus nuevos datos de acceso de forma segura...</p>
                             </div>
                         ) : (
+                            /* --- FORMULARIO --- */
                             <>
-                                /* --- FORMULARIO --- */
                                 {/* Botón dinámico: vuelve al login o al paso anterior */}
                                 <button 
                                     onClick={step === 1 ? null : prevStep} 

@@ -30,7 +30,7 @@ export default function Features(){
         <div className="features-right">
           <div className="cta-card">
             <h4>¿Listo para comenzar?</h4>
-            <p className="muted small">Crea tu cuenta gratuita y empieza a estimar costos de tus proyectos 3D hoy mismo.</p>
+            <p className="small">Crea tu cuenta gratuita y empieza a estimar costos de tus proyectos 3D hoy mismo.</p>
             <br></br>
             <a className="btn white block" href="/signup">
                 Crear cuenta gratis

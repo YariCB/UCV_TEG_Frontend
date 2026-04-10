@@ -56,8 +56,13 @@ export default function SignUpCard() {
           
           <form className="signup-form-list" onSubmit={handleSignUp}>
             <div className="input-group">
-              <label>Nombre completo <span className="required">*</span></label>
+              <label>Nombre<span className="required">*</span></label>
               <input type="text" placeholder="Tu nombre" required />
+            </div>
+
+            <div className="input-group">
+              <label>Apellido <span className="required">*</span></label>
+              <input type="text" placeholder="Tu apellido" required />
             </div>
 
             <div className="input-group">

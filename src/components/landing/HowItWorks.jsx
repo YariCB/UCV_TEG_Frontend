@@ -9,7 +9,7 @@ function Card({icon, title, children}){
     <div className="hiw-card">
       <div className="hiw-icon"><img src={icon} alt=""/></div>
       <h3>{title}</h3>
-      <p className="muted small">{children}</p>
+      <p className="small">{children}</p>
     </div>
   )
 }

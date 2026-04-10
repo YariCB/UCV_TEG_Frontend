@@ -8,7 +8,8 @@ import './Profile.css';
 export default function Profile() {
   const initial = {
     name: 'Yari',
-    email: 'yarimacontreras@example.com',
+    lastName: 'CB',
+    email: 'yaricb.art@gmail.com',
     avatar: '/src/assets/pfp.png',
   };
 
