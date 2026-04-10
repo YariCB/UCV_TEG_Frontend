@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import Projects from './pages/Projects/Projects'
 import Materials from './pages/Materials/Materials'
 import Profile from './pages/Profile/Profile'
+import Help from './pages/Help/Help'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -35,8 +36,12 @@ function App() {
         
         {/* Ruta para la página de Materiales */}
         <Route path="/materials" element={<Materials />} />
+
         {/* Ruta para perfil */}
         <Route path="/profile" element={<Profile />} />
+
+        {/* Ruta para la página de Ayuda */}
+        <Route path="/help" element={<Help />} />
       </Routes>
     </Router>
   )

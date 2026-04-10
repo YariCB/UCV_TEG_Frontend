@@ -207,6 +207,10 @@
     color: #ffffff;
 }
 
+.icon-btn-muted:hover {
+    color: var(--accent);
+}
+
 .logout-btn {
   background: transparent;
   border: none;

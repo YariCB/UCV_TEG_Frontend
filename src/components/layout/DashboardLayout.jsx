@@ -97,7 +97,7 @@ export default function DashboardLayout({ children }) {
             </div>
 
             <div className="navbar-right">
-                <button className="icon-btn-muted"><HelpCircle size={20} /></button>
+                <button className="icon-btn-muted" onClick={() => navigate('/help')}><HelpCircle size={20} /></button>
                 <button className="icon-btn-muted"><Settings size={20} /></button>
                 <div className="user-profile" onClick={() => navigate('/profile')} style={{cursor: 'pointer'}}>
                 <img src={pfp} alt="Perfil" />
