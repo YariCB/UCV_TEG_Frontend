@@ -4,12 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { SearchProvider } from './context/SearchContext'
 import { ModalProvider } from './context/ModalContext'
+import { SidebarProvider } from './context/SidebarContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ModalProvider>
       <SearchProvider>
-        <App />
+        <SidebarProvider>
+          <App />
+        </SidebarProvider>
       </SearchProvider>
     </ModalProvider>
   </StrictMode>,

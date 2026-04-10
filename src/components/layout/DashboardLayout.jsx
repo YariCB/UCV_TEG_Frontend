@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import sampleIcon from '../../assets/sample.svg'
 import pfp from '../../assets/pfp.png'
 import { SearchContext } from '../../context/SearchContext';
 import { useContext } from 'react';
+import { SidebarContext } from '../../context/SidebarContext';
 import { useModal } from '../../context/ModalContext';
 import NewProjectModal from '../../pages/Projects/NewProjectModal';
 import './DashboardLayout.css';
@@ -17,12 +18,12 @@ import {
 export default function DashboardLayout({ children }) {
     const { openModal } = useModal();
 
-    const [isExpanded, setIsExpanded] = useState(false);
+    const { isExpanded, toggle } = useContext(SidebarContext);
     const { searchTerm, setSearchTerm } = useContext(SearchContext);
     const navigate = useNavigate();
     const location = useLocation();
 
-    const toggleSidebar = () => setIsExpanded(!isExpanded);
+    const toggleSidebar = () => toggle();
     const isActive = (path) => location.pathname === path;
 
     return (
