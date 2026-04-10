@@ -6,8 +6,12 @@ import {
 } from 'lucide-react';
 import './Projects.css';
 import SearchContext from '../../context/SearchContext';
+import { useModal } from '../../context/ModalContext';
+import NewProjectModal from './NewProjectModal';
 
 export default function Projects() {
+  const { openModal } = useModal();
+
   const [viewMode, setViewMode] = useState('table');
   
   // Estado para el ordenamiento
@@ -88,7 +92,7 @@ export default function Projects() {
             <h2 className="accent-title">Proyectos de Fabricación</h2>
             <p className="muted small">Tienes {initialProjects.length} proyectos guardados</p>
           </div>
-          <button className="btn primary icon-left">
+          <button className="btn primary icon-left" onClick={openModal}>
             <Plus size={18} /> Nuevo Proyecto
           </button>
         </div>

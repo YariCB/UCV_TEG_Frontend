@@ -4,6 +4,8 @@ import sampleIcon from '../../assets/sample.svg'
 import pfp from '../../assets/pfp.png'
 import { SearchContext } from '../../context/SearchContext';
 import { useContext } from 'react';
+import { useModal } from '../../context/ModalContext';
+import NewProjectModal from '../../pages/Projects/NewProjectModal';
 import './DashboardLayout.css';
 
 // Íconos de Lucide React
@@ -13,6 +15,8 @@ import {
 } from 'lucide-react'; 
 
 export default function DashboardLayout({ children }) {
+    const { openModal } = useModal();
+
     const [isExpanded, setIsExpanded] = useState(false);
     const { searchTerm, setSearchTerm } = useContext(SearchContext);
     const navigate = useNavigate();
@@ -37,9 +41,9 @@ export default function DashboardLayout({ children }) {
             </button>
             
             <nav className="nav-links">
-                <button className="nav-item action-btn">
+                <button className="nav-item action-btn" onClick={openModal}>
                 <Plus fill={isActive('/new') ? "white" : "none"} />
-                {isExpanded && <span>Agregar proyecto</span>}
+                {isExpanded && <span>Nuevo proyecto</span>}
                 </button>
                 
                 <Link to="/home" className={`nav-item ${isActive('/home') ? 'active' : ''}`}>
@@ -104,6 +108,8 @@ export default function DashboardLayout({ children }) {
             <section className="page-body">
                 {children}
             </section>
+
+            <NewProjectModal />
         </main>
         </div>
     );
