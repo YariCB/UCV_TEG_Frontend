@@ -130,26 +130,26 @@ export default function Materials() {
             </thead>
             <tbody>
               {filteredBySearch.map(m => (
-                <tr key={m.id}>
-                  <td className="table-name-cell">
-                    <div className="file-icon-bg"><Layers size={16} /></div>
-                    <span>{m.name}</span>
-                  </td>
-                  <td>
+                  <tr key={m.id}>
+                    <td className="table-name-cell" data-label="Nombre">
+                      <div className="file-icon-bg"><Layers size={16} /></div>
+                      <span>{m.name}</span>
+                    </td>
+                    <td data-label="Clasificación">
                     {(() => {
                       const key = m.classification.toLowerCase().normalize('NFD').replace(/[^\w\s-]/g, '').replace(/\s+/g, '')
                       return <span className={`status-tag ${key}`}>{m.classification}</span>
                     })()}
                   </td>
-                  <td className="cost">${m.cost.toFixed(2)}</td>
-                  <td className="muted">{m.weight.toLocaleString()} g</td>
-                  <td><span className="metraje-chip">{m.metraje}</span></td>
-                  <td className="table-actions">
-                    <button className="action-btn-circle view"><Eye size={16}/></button>
-                    <button className="action-btn-circle edit"><Edit3 size={16}/></button>
-                    <button className="action-btn-circle delete"><Trash2 size={16}/></button>
-                  </td>
-                </tr>
+                    <td className="cost" data-label="Costo (USD)">${m.cost.toFixed(2)}</td>
+                    <td className="muted" data-label="Peso (g)">{m.weight.toLocaleString()} g</td>
+                    <td data-label="Metraje / Costo"><span className="metraje-chip">{m.metraje}</span></td>
+                    <td className="table-actions" data-label="Acciones">
+                      <button className="action-btn-circle view"><Eye size={16}/></button>
+                      <button className="action-btn-circle edit"><Edit3 size={16}/></button>
+                      <button className="action-btn-circle delete"><Trash2 size={16}/></button>
+                    </td>
+                  </tr>
               ))}
             </tbody>
           </table>

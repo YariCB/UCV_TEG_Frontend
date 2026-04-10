@@ -247,3 +247,36 @@
   .materials-header { flex-direction:column; align-items:flex-start }
   .search-bar { width:100% }
 }
+
+/* Responsive: convert table rows to cards on small screens */
+@media (max-width: 768px) {
+  .materials-table thead { display: none }
+  .materials-table { display: block }
+  .materials-table tbody { display: block }
+  .materials-table tbody tr {
+    display: block;
+    margin: 12px 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 6px 18px rgba(76,58,145,0.06);
+  }
+  .materials-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 6px;
+    border-bottom: none;
+  }
+  .materials-table tbody td:before {
+    content: attr(data-label);
+    font-size: 12px;
+    color: #8e94a9;
+    font-weight: 600;
+    margin-right: 10px;
+    flex: 1 1 auto;
+    text-transform: none;
+  }
+  .table-name-cell { gap:10px }
+  .table-actions { justify-content: flex-end }
+}
