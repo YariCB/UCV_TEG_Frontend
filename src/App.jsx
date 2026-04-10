@@ -7,6 +7,7 @@ import ForgotPassword from './pages/Auth/ForgotPassword'
 import Home from './pages/Home/Home'
 import Projects from './pages/Projects/Projects'
 import Materials from './pages/Materials/Materials'
+import Profile from './pages/Profile/Profile'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -34,6 +35,8 @@ function App() {
         
         {/* Ruta para la página de Materiales */}
         <Route path="/materials" element={<Materials />} />
+        {/* Ruta para perfil */}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   )
