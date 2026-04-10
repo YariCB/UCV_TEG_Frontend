@@ -6,6 +6,7 @@ import Login from './pages/Auth/Login'
 import ForgotPassword from './pages/Auth/ForgotPassword'
 import Home from './pages/Home/Home'
 import Projects from './pages/Projects/Projects'
+import Materials from './pages/Materials/Materials'
 import './pages/Landing/landing.css'
 import './index.css'
 
@@ -30,6 +31,9 @@ function App() {
 
         {/* Ruta para la página de Proyectos */}
         <Route path="/projects" element={<Projects />} />
+        
+        {/* Ruta para la página de Materiales */}
+        <Route path="/materials" element={<Materials />} />
       </Routes>
     </Router>
   )
