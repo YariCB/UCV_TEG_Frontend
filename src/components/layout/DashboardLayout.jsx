@@ -41,7 +41,7 @@ export default function DashboardLayout({ children }) {
             </button>
             
             <nav className="nav-links">
-                <button className="nav-item action-btn" onClick={openModal}>
+                <button className="nav-item action-btn" onClick={() => openModal('project')}>
                 <Plus fill={isActive('/new') ? "white" : "none"} />
                 {isExpanded && <span>Nuevo proyecto</span>}
                 </button>

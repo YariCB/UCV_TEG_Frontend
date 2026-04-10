@@ -92,7 +92,7 @@ export default function Projects() {
             <h2 className="accent-title">Proyectos de Fabricación</h2>
             <p className="muted small">Tienes {initialProjects.length} proyectos guardados</p>
           </div>
-          <button className="btn primary icon-left" onClick={openModal}>
+          <button className="btn primary icon-left" onClick={() => openModal('project')}>
             <Plus size={18} /> Nuevo Proyecto
           </button>
         </div>

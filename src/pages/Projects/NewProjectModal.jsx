@@ -6,9 +6,9 @@ import { Box } from 'lucide-react';
 import './NewProjectModal.css';
 
 export default function NewProjectModal() {
-  const { isModalOpen, closeModal } = useModal();
+  const { modalState, closeModal } = useModal();
 
-  if (!isModalOpen) return null;
+  if (!modalState?.open || modalState.type !== 'project') return null;
 
   return (
     <div className="modal-overlay">
