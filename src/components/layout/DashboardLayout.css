@@ -272,3 +272,7 @@
   color: #4c3a91;
   font-weight: 700;
 }
+
+.la-brand:hover{
+  cursor: pointer;
+}

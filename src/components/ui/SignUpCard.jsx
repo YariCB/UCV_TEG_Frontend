@@ -44,9 +44,9 @@ export default function SignUpCard() {
           </Link>
 
           <div className="card-header-left">
-            <div className="la-brand">
+            <div className="la-brand" onClick={() => navigate('/')}>
               <div className="brand-icon"><img src={sampleIcon} alt="logo"/></div>
-              <span>NombreApp</span>
+              <span>{import.meta.env.VITE_APP_NAME}</span>
             </div>
             <h2 className="accent-title">Crear cuenta gratis</h2>
             <p className="login-redirect muted small">

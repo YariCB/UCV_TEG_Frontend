@@ -41,9 +41,9 @@ export default function LoginCard() {
           </Link>
 
           <div className="card-header-left">
-            <div className="la-brand">
+            <div className="la-brand" onClick={() => navigate('/')}>
               <div className="brand-icon"><img src={sampleIcon} alt="logo"/></div>
-              <span>NombreApp</span>
+              <span>{import.meta.env.VITE_APP_NAME}</span>
             </div>
             
             <h2 className="accent-title">Iniciar sesión</h2>

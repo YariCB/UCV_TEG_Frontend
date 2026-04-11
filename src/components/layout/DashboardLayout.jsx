@@ -78,9 +78,9 @@ export default function DashboardLayout({ children }) {
             {/* NAVBAR */}
             <header className="dashboard-navbar">
             <div className="navbar-left">
-                <div className="la-brand">
+                <div className="la-brand" onClick={() => navigate('/home')}>
                     <div className="brand-icon"><img src={sampleIcon} alt="logo"/></div>
-                    <span>NombreApp</span>
+                    <span>{import.meta.env.VITE_APP_NAME}</span>
                 </div>
             </div>
 

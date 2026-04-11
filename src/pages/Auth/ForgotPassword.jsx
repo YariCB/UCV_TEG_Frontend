@@ -4,6 +4,7 @@ import CubeScene from '../../components/canvas/CubeScene.jsx';
 import backIcon from '../../assets/back.png';
 import openEyeIcon from '../../assets/openEye.png'
 import closedEyeIcon from '../../assets/closedEye.png'
+import sampleIcon from '../../assets/sample.svg'
 import './Auth.css';
 
 export default function ForgotPassword() {
@@ -83,6 +84,10 @@ export default function ForgotPassword() {
                                 </button>
 
                                 <div className="card-header-left">
+                                    <div className="la-brand" onClick={() => navigate('/')}>
+                                        <div className="brand-icon"><img src={sampleIcon} alt="logo"/></div>
+                                        <span>{import.meta.env.VITE_APP_NAME}</span>
+                                    </div>
                                     <h2 className="accent-title">
                                         {step === 1 && "Olvidé mi contraseña"}
                                         {step === 2 && "Verifica tu correo"}

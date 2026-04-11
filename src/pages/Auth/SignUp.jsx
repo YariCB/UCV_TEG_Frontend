@@ -11,7 +11,7 @@ export default function SignUp() {
           <CubeScene />
         </div>
         <div className="left-content">
-          <h1>Únete a NombreApp</h1>
+          <h1>Únete a {import.meta.env.VITE_APP_NAME}</h1>
           <p className="muted">
             Comienza a estimar costos de tus proyectos 3D
           </p>
