@@ -175,8 +175,10 @@ export default function Materials() {
               {filteredBySearch.map(m => (
                   <tr key={m.id}>
                     <td className="table-name-cell" data-label="Nombre">
-                      <div className="file-icon-bg"><Layers size={16} /></div>
-                      <span>{m.name}</span>
+                      <div className="name-wrapper">
+                        <div className="file-icon-bg"><Layers size={16} /></div>
+                        <span>{m.name}</span>
+                      </div>
                     </td>
                     <td data-label="Clasificación">
                     {(() => {
@@ -188,9 +190,11 @@ export default function Materials() {
                     <td className="muted" data-label="Peso (g)">{m.weight.toLocaleString()} g</td>
                     <td data-label="Metraje / Costo"><span className="metraje-chip">{m.metraje}</span></td>
                     <td className="table-actions" data-label="Acciones">
-                      {/* <button className="action-btn-circle view" onClick={() => openViewModal(m)}><Eye size={16}/></button> */}
-                      <button className="action-btn-circle edit" onClick={() => openEditModal(m)}><Edit3 size={16}/></button>
-                      <button className="action-btn-circle delete" onClick={() => handleDelete(m.id)}><Trash2 size={16}/></button>
+                      <div className="table-actions-inner">
+                        {/* <button className="action-btn-circle view" onClick={() => openViewModal(m)}><Eye size={16}/></button> */}
+                        <button className="action-btn-circle edit" onClick={() => openEditModal(m)}><Edit3 size={16}/></button>
+                        <button className="action-btn-circle delete" onClick={() => handleDelete(m.id)}><Trash2 size={16}/></button>
+                      </div>
                     </td>
                   </tr>
               ))}

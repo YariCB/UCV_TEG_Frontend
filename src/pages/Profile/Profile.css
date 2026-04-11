@@ -1,12 +1,8 @@
-:root {
-    --accent: #4c3a91;
-    --muted: #8e94a9;
-    --border-subtle: #eae7f5;
-    --white: #ffffff;
-    --bg-panel: #f8f9fd;
-}
-
 .profile-container {
+    --muted: var(--app-text-muted);
+    --border-subtle: var(--app-border-soft);
+    --white: var(--app-surface);
+    --bg-panel: var(--app-surface-muted);
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -139,7 +135,7 @@
 .input-group label {
     font-weight: 600;
     font-size: 14px;
-    color: #1a1d23;
+    color: var(--app-text-primary);
     margin-left: 2px;
 }
 
@@ -148,7 +144,7 @@
     border-radius: 12px;
     border: 1px solid var(--border-subtle);
     font-size: 14px;
-    color: #1a1d23;
+    color: var(--app-text-primary);
     background-color: var(--white);
     transition: all 0.2s ease;
 }
@@ -246,7 +242,7 @@
 
 .btn.white {
     background-color: var(--white);
-    color: #1a1d23;
+    color: var(--app-text-primary);
     border: 1px solid var(--border-subtle);
 }
 

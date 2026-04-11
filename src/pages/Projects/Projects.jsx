@@ -136,15 +136,19 @@ export default function Projects() {
                   {filteredProjects.map(proj => (
                     <tr key={proj.id}>
                       <td className="table-name-cell">
-                        <div className="file-icon-bg"><Box size={16} /></div>
-                        {proj.name}
+                        <div className="project-name-wrapper">
+                          <div className="file-icon-bg"><Box size={16} /></div>
+                          <span className="project-name-text">{proj.name}</span>
+                        </div>
                       </td>
                       <td><span className="version-tag">{proj.version}</span></td>
                       <td className="muted">{proj.date}</td>
                       <td className="table-actions">
-                        <button className="action-btn-circle view"><Eye size={16} /></button>
-                        <button className="action-btn-circle edit"><Edit3 size={16} /></button>
-                        <button className="action-btn-circle delete"><Trash2 size={16} /></button>
+                        <div className="table-actions-inner">
+                          <button className="action-btn-circle view"><Eye size={16} /></button>
+                          <button className="action-btn-circle edit"><Edit3 size={16} /></button>
+                          <button className="action-btn-circle delete"><Trash2 size={16} /></button>
+                        </div>
                       </td>
                     </tr>
                   ))}

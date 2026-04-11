@@ -85,11 +85,21 @@
 }
 
 .table-name-cell {
-  display: flex;
+  display: table-cell;
   align-items: center;
   gap: 12px;
   font-weight: 600;
   color: #1a1d23;
+}
+
+.project-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-name-text {
+  white-space: nowrap;
 }
 
 .file-icon-bg {
@@ -113,9 +123,14 @@
 
 /* Acciones en Tabla */
 .table-actions {
+  display: table-cell;
+}
+
+.table-actions-inner {
   display: flex;
   gap: 8px;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .action-btn-circle {
@@ -169,7 +184,7 @@
 }
 
 .clickable:hover {
-  background: #f1f3f9 !important;
+  background: #eceff8 !important;
 }
 
 .sort-icon {
@@ -182,14 +197,12 @@
 }
 
 .table-actions {
-  display: flex;
-  gap: 8px;
-  justify-content: flex-end;
+  display: table-cell;
 }
 
 /* Reafirmamos que el contenido del nombre esté alineado */
 .table-name-cell {
-  display: flex;
+  display: table-cell;
   align-items: center;
   gap: 12px;
   justify-content: flex-start;

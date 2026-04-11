@@ -13,7 +13,9 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--app-surface);
+  color: var(--app-text-primary);
+  border: 1px solid var(--app-border-soft);
   width: 100%;
   max-width: 500px;
   border-radius: 20px;
@@ -32,11 +34,11 @@
 .modal-header h2 {
   margin: 0;
   font-size: 24px;
-  color: #1a1d23;
+  color: var(--app-text-primary);
 }
 
 .modal-header .muted {
-  color: #777c8f;
+  color: var(--app-text-muted);
   margin-top: 5px;
   font-size: 14px;
 }
@@ -47,63 +49,65 @@
   right: 25px;
   background: none;
   border: none;
-  color: #adb5bd;
+  color: var(--app-text-muted);
   cursor: pointer;
 }
 
 /* Formulario */
-.modal-form {
+.modal-content .modal-form {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.input-group {
+.modal-content .input-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
   text-align: left;
 }
 
-.input-group label {
+.modal-content .input-group label {
   font-weight: 600;
   font-size: 14px;
-  color: #1a1d23;
+  color: var(--app-text-primary);
 }
 
-.input-group input {
+.modal-content .input-group input {
   padding: 12px 15px;
-  border: 1px solid #e1e4ed;
+  border: 1px solid var(--app-border-soft);
   border-radius: 12px;
   outline: none;
   transition: border 0.2s;
+  background: var(--app-bg-soft);
+  color: var(--app-text-primary);
 }
 
-.input-group input:focus {
+.modal-content .input-group input:focus {
   border-color: #4c3a91;
 }
 
 /* Dropzone */
-.upload-zone {
-  border: 2px dashed #e1e4ed;
+.modal-content .upload-zone {
+  border: 2px dashed var(--app-border-soft);
   border-radius: 16px;
   padding: 30px;
   text-align: center;
   position: relative;
   transition: all 0.2s;
-  background: #f8f9fd;
+  background: var(--app-bg-soft);
 }
 
-.upload-zone:hover {
+.modal-content .upload-zone:hover {
   border-color: #4c3a91;
-  background: #f1f0ff;
+  background: var(--app-surface-muted);
 }
 
-.upload-icon-circle {
+.modal-content .upload-icon-circle {
   width: 50px;
   height: 50px;
-  background: white;
+  background: var(--app-surface);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -113,18 +117,18 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.upload-info p {
+.modal-content .upload-info p {
   font-size: 14px;
-  color: #1a1d23;
+  color: var(--app-text-primary);
   margin-bottom: 5px;
 }
 
-.upload-info span {
+.modal-content .upload-info span {
   font-size: 12px;
-  color: #8e94a9;
+  color: var(--app-text-muted);
 }
 
-.file-input {
+.modal-content .file-input {
   position: absolute;
   top: 0;
   left: 0;
@@ -134,23 +138,24 @@
   cursor: pointer;
 }
 
-.modal-footer {
+.modal-content .modal-footer {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
   margin-top: 10px;
 }
 
-.btn-ghost {
+.modal-content .btn-ghost {
   background: transparent;
-  border: none;
-  color: #8e94a9;
+  border: 1px solid var(--app-border-soft);
+  color: var(--app-text-primary);
   padding: 12px 20px;
   cursor: pointer;
   font-weight: 500;
+  border-radius: 12px;
 }
 
-.btn-primary-modal {
+.modal-content .btn-primary-modal {
   background: #4c3a91;
   color: white;
   border: none;
@@ -161,31 +166,31 @@
   transition: background 0.2s;
 }
 
-.btn-primary-modal:hover {
+.modal-content .btn-primary-modal:hover {
   background: #3b2d70;
 }
 
 /* New layout helpers */
-.upload-inner {
+.modal-content .upload-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
 }
 
-.upload-icon-rect {
+.modal-content .upload-icon-rect {
   width: 88px;
   height: 88px;
   border-radius: 18px;
   color: var(--accent);
-  background: #f1ecfb;
+  background: var(--app-surface-muted);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 18px rgba(76,58,145,0.08);
 }
 
-.upload-btn {
+.modal-content .upload-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -194,23 +199,27 @@
   box-shadow: 0 8px 20px rgba(76,58,145,0.12);
 }
 
-.upload-btn-icon { width: 18px; height: 18px; }
+.modal-content .upload-btn-icon { width: 18px; height: 18px; }
 
-.muted.small { color: #858a9e; font-size: 13px; }
+.modal-content .muted.small { color: var(--app-text-muted); font-size: 13px; }
 
-.divider { width: 60%; height: 1px; background: #e9eaf1; margin: 6px 0 8px; border-radius: 2px; }
+.modal-content .divider { width: 60%; height: 1px; background: var(--app-border-soft); margin: 6px 0 8px; border-radius: 2px; }
 
-.extensions-chips { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
-.extension-chip {
-  background: #f3efff;
-  color: #5b4aa1;
+.modal-content .extensions-chips { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.modal-content .extension-chip {
+  background: var(--app-surface-muted);
+  color: var(--accent);
   padding: 6px 10px;
   border-radius: 12px;
   font-weight: 600;
   font-size: 13px;
 }
 
-.upload-zone { padding: 34px; }
+.modal-content .upload-zone { padding: 34px; }
+
+body[data-theme='dark'] .modal-overlay {
+  background: rgba(8, 6, 13, 0.65);
+}
 
 /* --- Responsive Design para el Modal --- */
 
@@ -229,12 +238,12 @@
     margin: 0 auto;
   }
 
-  .modal-footer {
+  .modal-content .modal-footer {
     flex-direction: column-reverse;
     gap: 10px;
   }
 
-  .modal-footer button {
+  .modal-content .modal-footer button {
     width: 100%;
   }
 }

@@ -7,7 +7,6 @@
   height: 100vh;
   overflow: hidden;
   background-color: var(--bg);
-  color-scheme: light;
 }
 
 .la-signup-page::before {
@@ -73,7 +72,7 @@
 
 .back-icon-accent {
   width: 16px;
-  filter: sepia(100%) hue-rotate(220deg) saturate(500%);
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(2172%) hue-rotate(210deg) brightness(95%) contrast(90%);
 }
 
 /* ---------- Tipografía ---------- */
@@ -108,11 +107,10 @@
   margin: auto 0;
   padding: 40px;
   border-radius: 24px;
-  background: #fff;
-  background-color: #fff;
+  background: var(--white);
+  background-color: var(--white);
   box-shadow: var(--shadow);
   text-align: left;
-  color-scheme: light;
 }
 
 .card-header-left {
@@ -167,14 +165,37 @@
   border-radius: 12px;
   background: #f9f8ff !important;
   background-color: #f9f8ff !important;
-  color: #2b2540;
+  color: var(--app-text-primary);
   font-size: 15px;
   transition: all 0.3s ease;
   appearance: none;
   -webkit-appearance: none;
   box-sizing: border-box;
-  color-scheme: light;
   box-shadow: none;
+}
+
+body[data-theme='dark'] .la-signup-page {
+  background-color: #120d1f;
+  color: var(--app-text-primary);
+}
+
+body[data-theme='dark'] .la-signup-page::before {
+  opacity: 0.22;
+}
+
+body[data-theme='dark'] .input-group input,
+body[data-theme='dark'] .password-input-wrapper input {
+  border: 1px solid rgba(194, 184, 221, 0.18);
+  background: #251c3e !important;
+  background-color: #251c3e !important;
+  color: var(--app-text-primary);
+}
+
+body[data-theme='dark'] .input-group input:focus,
+body[data-theme='dark'] .password-input-wrapper input:focus {
+  background: #251c3e !important;
+  background-color: #251c3e !important;
+  box-shadow: 0 0 0 4px rgba(159, 139, 232, 0.18);
 }
 
 .input-group input:focus,
@@ -234,6 +255,12 @@
   display: block;
   width: 20px;
   height: auto;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(2172%) hue-rotate(210deg) brightness(95%) contrast(90%);
+}
+
+body[data-theme='dark'] .back-icon-accent,
+body[data-theme='dark'] .toggle-password-btn img {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(17%) saturate(794%) hue-rotate(212deg) brightness(96%) contrast(92%);
 }
 
 /* ---------- Buttons ---------- */

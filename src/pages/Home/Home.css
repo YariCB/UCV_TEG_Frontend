@@ -211,3 +211,37 @@
   color: #5a6072;
   font-weight: 500;
 }
+
+body[data-theme='dark'] .workflow-steps {
+  background: #241a40;
+  color: #f2edff;
+  border: 1px solid rgba(194, 184, 221, 0.18);
+}
+
+body[data-theme='dark'] .step-number {
+  background: rgba(242, 237, 255, 0.16);
+  color: #f2edff;
+}
+
+body[data-theme='dark'] .step-line {
+  background: rgba(242, 237, 255, 0.2);
+}
+
+body[data-theme='dark'] .workflow-steps.muted-bg {
+  background: #1d1730 !important;
+  color: #cfc5ea !important;
+  border-color: rgba(194, 184, 221, 0.14);
+}
+
+body[data-theme='dark'] .workflow-steps.muted-bg .step-number {
+  background: rgba(159, 139, 232, 0.22) !important;
+  color: #cfc0ff !important;
+}
+
+body[data-theme='dark'] .workflow-steps.muted-bg .step-line {
+  background: rgba(194, 184, 221, 0.2) !important;
+}
+
+body[data-theme='dark'] .workflow-steps.muted-bg p {
+  color: #d6cdea;
+}

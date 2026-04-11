@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import sampleIcon from '../../assets/sample.svg'
 import pfp from '../../assets/pfp.png'
@@ -6,25 +6,45 @@ import { SearchContext } from '../../context/SearchContext';
 import { useContext } from 'react';
 import { SidebarContext } from '../../context/SidebarContext';
 import { useModal } from '../../context/ModalContext';
+import { useTheme } from '../../context/ThemeContext';
 import NewProjectModal from '../../pages/Projects/NewProjectModal';
 import './DashboardLayout.css';
 
 // Íconos de Lucide React
 import { 
     Menu, Plus, Home, Folder, Layers, 
-    Search, HelpCircle, Settings, LogOut 
+        Search, HelpCircle, Settings, LogOut, Sun, Moon, ChevronDown 
 } from 'lucide-react'; 
 
 export default function DashboardLayout({ children }) {
     const { openModal } = useModal();
+        const { isDark, toggleTheme } = useTheme();
 
     const { isExpanded, toggle } = useContext(SidebarContext);
     const { searchTerm, setSearchTerm } = useContext(SearchContext);
     const navigate = useNavigate();
     const location = useLocation();
+        const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+        const settingsMenuRef = useRef(null);
 
     const toggleSidebar = () => toggle();
     const isActive = (path) => location.pathname === path;
+
+        useEffect(() => {
+            function handleOutsideClick(event) {
+                if (settingsMenuRef.current && !settingsMenuRef.current.contains(event.target)) {
+                    setIsSettingsOpen(false);
+                }
+            }
+
+            if (isSettingsOpen) {
+                document.addEventListener('mousedown', handleOutsideClick);
+            }
+
+            return () => {
+                document.removeEventListener('mousedown', handleOutsideClick);
+            };
+        }, [isSettingsOpen]);
 
     return (
         <div className={`dashboard-container ${isExpanded ? 'sidebar-expanded' : ''}`}>
@@ -98,7 +118,32 @@ export default function DashboardLayout({ children }) {
 
             <div className="navbar-right">
                 <button className="icon-btn-muted" onClick={() => navigate('/help')}><HelpCircle size={20} /></button>
-                <button className="icon-btn-muted"><Settings size={20} /></button>
+                                <div className="settings-wrapper" ref={settingsMenuRef}>
+                                    <button
+                                        className="icon-btn-muted"
+                                        onClick={() => setIsSettingsOpen((prevValue) => !prevValue)}
+                                        aria-label="Abrir configuracion"
+                                    >
+                                        <Settings size={20} />
+                                    </button>
+
+                                    {isSettingsOpen && (
+                                        <div className="settings-menu">
+                                            <button
+                                                type="button"
+                                                className="settings-item"
+                                                onClick={() => {
+                                                    toggleTheme();
+                                                    setIsSettingsOpen(false);
+                                                }}
+                                            >
+                                                {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                                                <span>Tema</span>
+                                                <ChevronDown size={14} className="settings-chevron" />
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
                 <div className="user-profile" onClick={() => navigate('/profile')} style={{cursor: 'pointer'}}>
                 <img src={pfp} alt="Perfil" />
                 </div>

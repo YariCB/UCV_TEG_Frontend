@@ -8,7 +8,7 @@ import './landing.css'
 
 export default function Landing(){
   return (
-    <div>
+    <div className="landing-page">
       <Header />
       <Hero />
       <HowItWorks />
